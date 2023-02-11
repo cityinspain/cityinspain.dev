@@ -42,7 +42,9 @@ const Post = ({ post }) => {
   return (
     <article className="py-8">
       <h1 className="text-3xl font-mono font-black">{post?.title}</h1>
-      <PortableText value={post.body} components={ptComponents} />
+      {post?.body && (
+        <PortableText value={post.body} components={ptComponents} />
+      )}
     </article>
   );
 };

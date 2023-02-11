@@ -23,9 +23,7 @@ export default function BlogPage({ posts }) {
       <PageTitle>blog</PageTitle>
       <ul className="divide-y-0 divide-gray-900 py-8">
         {posts.map((post) => (
-          <>
-            <BlogPostLink key={post.slug.current} post={post} />
-          </>
+          <BlogPostLink key={post.slug.current} post={post} />
         ))}
       </ul>
     </>

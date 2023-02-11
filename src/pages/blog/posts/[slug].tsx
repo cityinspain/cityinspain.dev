@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import TextContainer from "@/components/TextContainer";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import Head from "next/head";
 
 const ptComponents = {
   block: {
@@ -40,12 +41,17 @@ const ptComponents = {
 
 const Post = ({ post }) => {
   return (
-    <article className="py-8">
-      <h1 className="text-3xl font-mono font-black">{post?.title}</h1>
-      {post?.body && (
-        <PortableText value={post.body} components={ptComponents} />
-      )}
-    </article>
+    <>
+      <Head>
+        <title>{post?.title}</title>
+      </Head>
+      <article className="py-8">
+        <h1 className="text-3xl font-mono font-black">{post?.title}</h1>
+        {post?.body && (
+          <PortableText value={post.body} components={ptComponents} />
+        )}
+      </article>
+    </>
   );
 };
 

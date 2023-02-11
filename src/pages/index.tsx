@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import TextContainer from "@/components/TextContainer";
 import { Inter } from "@next/font/google";
 

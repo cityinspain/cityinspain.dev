@@ -21,8 +21,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <div className="max-w-screen md:max-w-3xl md:m-auto py-4 divide-gray-600 divide-y">
-        <div className="pb-2">
+      <div className="max-w-screen md:max-w-3xl md:m-auto py-4 divide-gray-600 divide-y ">
+        <div className="pb-2 sm:px-0 px-4">
           <Link href="/">
             <h1 className="font-mono text-3xl font-bold pb-2">
               cityinspain.dev
@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </div>
         </div>
-        <div className="pt-4">{children}</div>
+        <div className="pt-4 md:px-0 px-4">{children}</div>
       </div>
     </>
   );

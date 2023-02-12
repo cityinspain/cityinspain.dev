@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import client from "@lib/sanityClient";
 import groq from "groq";
 import { PortableText } from "@portabletext/react";
@@ -51,7 +52,7 @@ const ptComponents = {
           alt={value.alt || " "}
           loading="lazy"
           // eslint-disable-next-line @next/next/no-img-element
-          src={urlFor(value).fit("max").auto("format")}
+          src={urlFor(value).fit("max").auto("format") as unknown as string}
         />
       );
     },

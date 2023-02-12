@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import client from "@lib/sanityClient";
 import groq from "groq";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import TextContainer from "@/components/TextContainer";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Head from "next/head";
 import imageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source);
@@ -54,6 +55,22 @@ const ptComponents = {
           // eslint-disable-next-line @next/next/no-img-element
           src={urlFor(value).fit("max").auto("format") as unknown as string}
         />
+      );
+    },
+  },
+  marks: {
+    link: (props) => {
+      const target = (props.value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
+      return (
+        <Link
+          href={props.value?.href || ""}
+          target={target}
+          className="underline"
+        >
+          {props.children}
+        </Link>
       );
     },
   },

@@ -5,6 +5,11 @@ import TextContainer from "@/components/TextContainer";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Head from "next/head";
+import imageUrlBuilder from "@sanity/image-url";
+
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source);
+}
 
 const ptComponents = {
   block: {
@@ -36,6 +41,20 @@ const ptComponents = {
       //     <code>{props.value.code}</code>
       //   </pre>
     ),
+    image: ({ value }) => {
+      if (!value?.asset?._ref) {
+        return null;
+      }
+
+      return (
+        <img
+          alt={value.alt || " "}
+          loading="lazy"
+          // eslint-disable-next-line @next/next/no-img-element
+          src={urlFor(value).fit("max").auto("format")}
+        />
+      );
+    },
   },
 };
 

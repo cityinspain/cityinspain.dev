@@ -20,6 +20,16 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'githubRepo',
+      title: 'Github Repo',
+      type: 'url',
+    }),
+    defineField({
+      name: 'projectLink',
+      title: 'Project Link',
+      type: 'url',
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',

@@ -83,38 +83,44 @@ const Project = ({ project }) => {
       <Head>
         <title>{project?.title}</title>
       </Head>
-      <article className="py-8">
-        <h1 className="text-3xl font-mono font-black pb-4">{project?.title}</h1>
-        <img
-          src={
-            urlFor(project.mainImage)
-              .fit("max")
-              .auto("format") as unknown as string
-          }
-        />
-        <div className="flex gap-4 pt-6">
-          {project.githubRepo && (
-            <Link href={project.githubRepo}>
-              <div className="flex items-center gap-4">
-                <IconBrandGithub height={38} width={38}></IconBrandGithub>
-                <div className="text-2xl">github repo</div>
-              </div>
-            </Link>
-          )}
-          {project.projectLink && (
-            <Link href={project.projectLink}>
-              <div className="flex items-center gap-4">
-                <IconGlobe height={38} width={38}></IconGlobe>
-                <div className="text-2xl">site</div>
-              </div>
-            </Link>
-          )}
-        </div>
+      {project && (
+        <article className="py-8">
+          <h1 className="text-3xl font-mono font-black pb-4">
+            {project?.title}
+          </h1>
 
-        {project?.body && (
-          <PortableText value={project.body} components={ptComponents} />
-        )}
-      </article>
+          <img
+            src={
+              urlFor(project.mainImage)
+                .fit("max")
+                .auto("format") as unknown as string
+            }
+            alt=""
+          />
+          <div className="flex gap-4 pt-6">
+            {project.githubRepo && (
+              <Link href={project.githubRepo}>
+                <div className="flex items-center gap-4">
+                  <IconBrandGithub height={38} width={38}></IconBrandGithub>
+                  <div className="text-2xl">github repo</div>
+                </div>
+              </Link>
+            )}
+            {project.projectLink && (
+              <Link href={project.projectLink}>
+                <div className="flex items-center gap-4">
+                  <IconGlobe height={38} width={38}></IconGlobe>
+                  <div className="text-2xl">site</div>
+                </div>
+              </Link>
+            )}
+          </div>
+
+          {project?.body && (
+            <PortableText value={project.body} components={ptComponents} />
+          )}
+        </article>
+      )}
     </>
   );
 };

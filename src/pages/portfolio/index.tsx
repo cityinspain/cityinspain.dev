@@ -28,33 +28,7 @@ export default function PortfolioPage({ projects }) {
             key={project.slug.current}
           ></PortfolioProjectCard>
         ))}
-        {projects.map((project) => (
-          <PortfolioProjectCard
-            project={project}
-            key={project.slug.current}
-          ></PortfolioProjectCard>
-        ))}
-        {projects.map((project) => (
-          <PortfolioProjectCard
-            project={project}
-            key={project.slug.current}
-          ></PortfolioProjectCard>
-        ))}
-        {projects.map((project) => (
-          <PortfolioProjectCard
-            project={project}
-            key={project.slug.current}
-          ></PortfolioProjectCard>
-        ))}
       </div>
-      {/* <ul className="divide-y-0 divide-gray-900 py-8">
-        {projects.map((project) => (
-          <PortfolioProjectCard
-            project={project}
-            key={project.slug.current}
-          ></PortfolioProjectCard>
-        ))}
-      </ul> */}
     </>
   );
 }

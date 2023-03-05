@@ -28,12 +28,17 @@ export default function PortfolioProjectCard({ project }) {
 
         <p className="text-gray-300 text-base mb-4">{project.publishedAt}</p>
         <div className="flex justify-end gap-4">
-          <Link href={project.projectLink}>
-            <IconGlobe></IconGlobe>
-          </Link>
-          <Link href={project.githubRepo}>
-            <IconBrandGithub></IconBrandGithub>
-          </Link>
+          {project.projectLink && (
+            <Link href={project.projectLink}>
+              <IconGlobe></IconGlobe>
+            </Link>
+          )}
+
+          {project.githubRepo && (
+            <Link href={project.githubRepo}>
+              <IconBrandGithub></IconBrandGithub>
+            </Link>
+          )}
         </div>
       </div>
     </div>

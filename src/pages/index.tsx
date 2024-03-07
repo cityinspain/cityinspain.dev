@@ -10,7 +10,7 @@ export default function Home() {
         <title>cityinspain.dev</title>
       </Head>
       <TextContainer>
-        Hello! My name's Anthony Salamanca. I'm a full-stack developer from New
+        Hello! My name's Olive Salamanca. I'm a full-stack developer from New
         Hampshire.
       </TextContainer>
     </>
